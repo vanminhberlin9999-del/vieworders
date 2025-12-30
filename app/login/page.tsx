@@ -1,27 +1,36 @@
 'use client'
 import {useState} from 'react'
 import {useRouter} from "next/navigation";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState, setUsername} from "@/lib/store";
 
 export default function LoginPage() {
 
-    const [username, setUsername] = useState("");
+    const [usernameInput, setUsernameInput] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const ADMIN_USERNAME= "vanvan";
-    const ADMIN_PASSWORD= "dathanhtoan";
-
     const router = useRouter();
+    const username = useSelector((state: RootState) => state.users?.username);
 
+    const dispatch = useDispatch<AppDispatch>();
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault()
         setLoading(true);
         setError('');
 
-        if(password === ADMIN_PASSWORD && username === ADMIN_USERNAME){
-            document.cookie = "auth=1, path=/, max-age=86400";
+        const res = await fetch('/api/auth', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: usernameInput, password: password })
+        });
+
+        setLoading(false);
+
+        if(res.ok){
+            dispatch(setUsername(usernameInput));
             router.push('/');
         }else{
             setError('Wrong password');
@@ -34,22 +43,22 @@ export default function LoginPage() {
             <br/>
             <form onSubmit={handleSubmit}>
                 <input
-                    placeholder="Username"
-                    value={username}
-                    onChange={ e => setUsername(e.target.value) }
+                    placeholder="admin"
+                    value={usernameInput}
+                    onChange={ e => setUsernameInput(e.target.value) }
                     required
                 />
 
                 <input
                     type="password"
-                    placeholder="Password"
+                    placeholder="123456"
                     value={password}
                     onChange={ e => setPassword(e.target.value) }
                     required
                 />
 
-                <button type="submit" disabled={loading}>
-                    {loading ? 'Login in process…' : 'Login'}
+                <button type="submit">
+                   Login
                 </button>
             </form>
 

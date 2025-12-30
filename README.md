@@ -34,3 +34,52 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+# Feature
+Next 16 vs Taiwindcss
+- create login page
+- crate proxy.ts as require login for all pages
+- create navigation: logo, navi and button login/logout
+- store logged in in with cookie and display 
+- redux state management
+- redux-persist to store username at localStorage
+## Backend
+https://dev.to/leapcell/implementing-jwt-middleware-in-nextjs-a-complete-guide-to-auth-1b2d
+jLogin
+└── create JWT
+└── set httpOnly cookie
+
+Page request
+└── middleware check cookie
+
+API request
+└── cookie auto sent
+└── api verify JWT
+
+
+## logic login
+[Login]
+User enter username/password
+↓
+API /login
+→ create JWT token
+→ Set httpOnly cookie auth
+↓
+Redux dispatch setUser(dataFromAPI) -> save user info, NOT Save token
+↓
+[Reload Page]
+Middleware check cookie → redirect page indeed
+Frontend call /api/...
+→ Server verify cookie
+→ return user info
+Redux dispatch setUser(dataFromAPI) // populate lại state
+
+[Code folder]
+api for API GET POST
+    - auth for login
+    - jwt : JWT TOKEN, Create new and Verify
+    - Orders: returns data orders
+/styles: style for each page
+providers.tsx: wrap element
+/lib/store.ts = declare store
+/lib features: declare Slices
