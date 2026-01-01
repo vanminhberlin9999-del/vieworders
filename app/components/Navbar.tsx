@@ -21,7 +21,7 @@ export default function Navbar() {
                     <Link href="/orders">
                         <span className="px-4 py-2 rounded hover:bg-gray-300 hover:text-black">ViewOrders</span>
                     </Link>
-                    <Link href="/about us">
+                    <Link href="/about-us">
                         <span className="px-4 py-2 rounded hover:bg-gray-300 hover:text-black">About Us</span>
                     </Link>
                     <Link href="/services">
