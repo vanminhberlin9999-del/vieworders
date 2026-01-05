@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
-import isAuthentication from "@/app/api/jwt/isAuthentication";
-import createToken from "@/app/api/jwt/token";
+import isAuthentication from "@/app/api/(auth)/jwt/isAuthentication";
+import createToken from "@/app/api/(auth)/jwt/token";
 import { cookies } from 'next/headers'
 
 export async function POST(request: Request) {
     try {
         const { username, password } = await request.json();
         // demo user
-        if ( isAuthentication(username, password)){
+        if ( await isAuthentication(username, password)){
             const token = await createToken(username);
             const res = NextResponse.json({success: true});
             const cookieStore = await cookies()
