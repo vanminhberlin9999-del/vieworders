@@ -2,20 +2,21 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import Providers from "./providers";
-import Navbar from "@/app/components/Navbar";
-import { store, persistor } from '@/lib/store'
+import Header from "@/app/components/layout/(header)/Header";
+import {Roboto_Slab, Open_Sans} from "next/font/google";
+import {ThemeProvider} from "next-themes";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const roboto_slab = Roboto_Slab({
+    subsets: ["latin"],
+    variable: "--font-heading",
+    display: "swap"
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-
+const open_sans = Open_Sans({
+    subsets: ["latin"],
+    variable: "--font-body",
+    display: "swap"
+})
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -23,19 +24,22 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${roboto_slab.variable} ${open_sans.variable}`}>
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>My App</title>
     </head>
 
-    <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <body className="font-body">
         <Providers>
-                <Navbar/>
-                <main className="container mx-auto p-4">
+            <ThemeProvider attribute="class" enableSystem={true} defaultTheme={'system'}>
+                <Header/>
+                <main className="w-full mx-auto">
                     {children}
                 </main>
+            </ThemeProvider>
+
         </Providers>
       </body>
     </html>
