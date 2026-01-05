@@ -83,3 +83,10 @@ api for API GET POST
 providers.tsx: wrap element
 /lib/store.ts = declare store
 /lib features: declare Slices
+
+## Nav
+Animation for Header: https://www.npmjs.com/package/framer-motion
+add Topbar, add dark light button with next-themes
+topbar : css:   --topbar-bg: #FF2A41;, in html : bg-[var(--topbar-bg)]
+
+or variable in taiwind.config.js
