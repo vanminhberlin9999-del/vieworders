@@ -1,5 +1,5 @@
 import {NextRequest, NextResponse} from "next/server";
-import verifyToken from "@/app/api/jwt/verifyToken";
+import verifyToken from "@/app/api/(auth)/jwt/verifyToken";
 
 export async function proxy(req: NextRequest){
     const auth = req.cookies.get("auth")?.value;
@@ -14,7 +14,6 @@ export async function proxy(req: NextRequest){
     if(auth){
         try {
             const checkToken = await verifyToken(req);
-            console.log(checkToken);
             if (checkToken?.valid === false){
                 if(pathname !== "/login"){ // not in the login page-> redirect to the login page
                     return NextResponse.redirect(new URL("login", req.url));
