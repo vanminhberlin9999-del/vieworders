@@ -17,14 +17,15 @@ export default function Navbar() {
     const router = useRouter();
 
     async function Logout(){
-        await fetch('/api/logout', {
+        await fetch('/api/auth/logout', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include'
         });
 
-        router.push('/login');
+        return router.push('/login');
     }
+
     return (
         <>
             <nav className=" dark:bg-gray-600 shadow-md" >

@@ -9,7 +9,7 @@
   --bg-secondary: #e2f5fc;
   --text-color: #171717;
 
-  --topbar-light-bg: #FF2A41;
+  --color-topbar-light-bg: #FF2A41;
 }
 
 @theme inline {
@@ -36,5 +36,5 @@ body {
   --color-primary: #fff;
   --text-color: white;
 
-  --topbar-dark-bg: rgba(54, 63, 71, 0.48);
+  --color-topbar-dark-bg: rgba(54, 63, 71, 0.48);
 }
