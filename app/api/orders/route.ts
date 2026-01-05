@@ -1,5 +1,5 @@
 import {NextRequest, NextResponse} from "next/server";
-import verifyToken from "@/app/api/jwt/verifyToken";
+import verifyToken from "@/app/api/(auth)/jwt/verifyToken";
 
 export async function GET(request: NextRequest) {
     const payload = await verifyToken(request);
