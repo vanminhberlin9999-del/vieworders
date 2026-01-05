@@ -13,7 +13,7 @@ export default function OrdersPage () {
                 setOrders(data.orders);
                 setLoading(false);
             }catch (e) {
-                console.log(e);
+
             }finally {
                 setLoading(false);
             }
@@ -24,30 +24,34 @@ export default function OrdersPage () {
     if (loading) return <p>Loading...</p>;
     if (orders.length === 0) return <p>No orders yet.</p>;
     return (
-        <div className=" container mx-auto orders">
-            <h1 className="text-center">Order Table</h1>
+        <div className="mx-auto orders">
+            <div className="w-full" style={{background: "red"}}>
+                <h1 className="text-center">Orders</h1>
+            </div>
 
-             <table>
-                <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Customer</th>
-                </tr>
-                </thead>
-                <tbody>
-                {orders.map(order => (
-                    <tr key={order.id}>
-                        <td className="border px-4 py-2">{order.id}</td>
-                        <td className="border px-4 py-2">{order.product}</td>
-                        <td className="border px-4 py-2">{order.price}</td>
-                        <td className="border px-4 py-2">{order.customer}</td>
-                    </tr>
-                ))}
+             <div className="container mx-auto">
+                 <table>
+                     <thead>
+                     <tr>
+                         <th>Order ID</th>
+                         <th>Product</th>
+                         <th>Price</th>
+                         <th>Customer</th>
+                     </tr>
+                     </thead>
+                     <tbody>
+                     {orders.map(order => (
+                         <tr key={order.id}>
+                             <td className="border px-4 py-2">{order.id}</td>
+                             <td className="border px-4 py-2">{order.product}</td>
+                             <td className="border px-4 py-2">{order.price}</td>
+                             <td className="border px-4 py-2">{order.customer}</td>
+                         </tr>
+                     ))}
 
-                </tbody>
-            </table>
+                     </tbody>
+                 </table>
+             </div>
         </div>
     )
 }
