@@ -90,3 +90,14 @@ add Topbar, add dark light button with next-themes
 topbar : css:   --topbar-bg: #FF2A41;, in html : bg-[var(--topbar-bg)]
 
 or variable in taiwind.config.js
+## Github
+how to push code in IntelliJ
+Open Terminal in IntelliJ, run:
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/reactnative
+
+
+Test:
+ssh -T git@github.com
+
+👉 OK → git push oki
