@@ -8,13 +8,13 @@ import {ThemeProvider} from "next-themes";
 
 const roboto_slab = Roboto_Slab({
     subsets: ["latin"],
-    variable: "--font-heading",
+    variable: "--font-roboto-slab",
     display: "swap"
 })
 
 const open_sans = Open_Sans({
     subsets: ["latin"],
-    variable: "--font-body",
+    variable: "--font-open-sans",
     display: "swap"
 })
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en" className={`${roboto_slab.variable} ${open_sans.variable}`}>
+    <html lang="en"  className={`${roboto_slab.variable} ${open_sans.variable}`}>
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

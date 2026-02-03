@@ -1,6 +1,6 @@
 @import "tailwindcss";
 :root {
-  --background: #FFF;
+  --background: #EEF1F7;
   --foreground: #171717;
   --radius: 14px;
   --color-primary: #0070f3;
@@ -9,12 +9,21 @@
   --bg-secondary: #e2f5fc;
   --text-color: #171717;
 
-  --color-topbar-light-bg: #FF2A41;
+  --color-topbar-bg: #FF2A41;
+  --hover-link-color: #FF2A41;
 }
 
 @theme inline {
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --font-heading: var(--font-roboto-slab);
+  --font-body: var(--font-open-sans);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-hover-link: var(--hover-link-color);
 }
 
 /*!*@media (prefers-color-scheme: dark) {*!*/
@@ -36,5 +45,6 @@ body {
   --color-primary: #fff;
   --text-color: white;
 
-  --color-topbar-dark-bg: rgba(54, 63, 71, 0.48);
+  --color-topbar-bg: yellow;
+  --hover-link-color: #FF2A41;
 }

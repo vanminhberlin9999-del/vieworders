@@ -28,7 +28,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className=" dark:bg-gray-600 shadow-md" >
+            <nav className=" shadow-md" >
                 <div className="container mx-auto flex items-center justify-between min-h-2">
                     {/* Desktop logo*/}
                     <div className="hidden md:flex logo flex items-center justify-center">
@@ -44,40 +44,40 @@ export default function Navbar() {
 
                     {/* Desktop menu*/}
                     <div className="nav-links hidden md:flex space-x-4  flex justify-around text-sm">
-                        <Link href="/" className="flex flex-row items-center" >
+                        <Link href="/" className="flex flex-row items-center hover:color-red">
                             <House />
-                            <span className="pl-1 rounded hover:bg-gray-300 hover:text-black">Home</span>
+                            <span className="pl-1 rounded hover:bg-gray-300 hover:text-hover-link">Home</span>
                         </Link>
                         <Link href="/services" className="flex flex-row items-center">
                             <Settings />
-                            <span className="pl-1 rounded hover:bg-gray-300 hover:text-black">Services</span>
+                            <span className="pl-1 rounded hover:bg-gray-300 hover:text-red">Services</span>
                             <ChevronDown />
                         </Link>
                         <Link href="/advice" className="flex flex-row items-center">
                             <GraduationCap />
-                            <span className="pl-1 rounded hover:bg-gray-300 hover:text-black">Advice</span>
+                            <span className="pl-1 rounded hover:bg-gray-300 hover:text-red">Advice</span>
                             <ChevronDown />
                         </Link>
 
                         <Link href="/app" className="flex flex-row items-center">
                             <Smartphone />
-                            <span className="pl-1 rounded hover:bg-gray-300 hover:text-black">App</span>
+                            <span className="pl-1 rounded hover:bg-gray-300 hover:text-red">App</span>
                             <ChevronDown />
                         </Link>
 
                         <Link href="/about-us" className="flex flex-row items-center">
                             <Info />
-                            <span className="pl-1 rounded hover:bg-gray-300 hover:text-black">About Us</span>
+                            <span className="pl-1 rounded hover:bg-gray-300 hover:text-red">About Us</span>
                             <ChevronDown />
                         </Link>
 
                         <Link href="/references" className="flex flex-row items-center">
                             <Medal />
-                            <span className="pl-1 rounded hover:bg-gray-300 hover:text-black">References</span>
+                            <span className="pl-1 rounded hover:bg-gray-300 hover:text-red">References</span>
                         </Link>
                         <Link href="/contact" className="flex flex-row items-center">
                             <Send />
-                            <span className="pl-1 rounded hover:bg-gray-300 hover:text-black">Contact</span>
+                            <span className="pl-1 rounded hover:bg-gray-300 hover:text-red">Contact</span>
                         </Link>
                     </div>
 
@@ -102,7 +102,7 @@ export default function Navbar() {
                     </div>
 
                     {/* Mobile Logo  */}
-                    <div className="md:hidden logo flex items-center justify-center">
+                    <div className="md:hidden logo flex items-center justify-center p-4">
                         <Image
                             src="/minhshop.png"
                             width={50}
@@ -113,7 +113,7 @@ export default function Navbar() {
                     </div>
 
                     {/* Mobile Hamburger  */}
-                    <button className="hamburger md:hidden text-3xl font-bold hover:text-gray-700"
+                    <button className="hamburger md:hidden text-3xl font-bold hover:text-gray-700 p-4"
                             onClick={() => setOpen(!open)}
                             aria-label="Menu">
                         <Menu className="w-7 h-7" />
@@ -140,7 +140,7 @@ export default function Navbar() {
                             <X className="w-7 h-7" />
                         </div>
 
-                        <Link href="/public" className="mt-4" onClick={() => setOpen(false)}>Home</Link>
+                        <Link href="/s" className="mt-4" onClick={() => setOpen(false)}>Home</Link>
                         <Link href="/orders" className="mt-4" onClick={() => setOpen(false)}>ViewOrders</Link>
                         <Link href="/about-us" className="mt-4" onClick={() => setOpen(false)}>About Us</Link>
                         <Link href="/services" className="mt-4" onClick={() => setOpen(false)}>Services</Link>

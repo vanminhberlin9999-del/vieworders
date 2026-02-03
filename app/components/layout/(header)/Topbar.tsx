@@ -5,7 +5,7 @@ import ThemeToogle from "@/app/components/ui/ThemeToggle";
 export default function Topbar() {
     return (
         <>
-        <div className="topbar bg-topbar-light-bg dark:bg-topbar-dark-bg">
+        <div className="hidden md:flex topbar bg-[var(--color-topbar-bg)] dark:bg[var(--color-topbar-bg)]">
             <div className="container mx-auto flex flex-row justify-between items-center">
                 <div className="left flex flex-row items-center">
                     <p className="flex items-center text-xs m-1">
